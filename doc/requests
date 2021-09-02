@@ -1,0 +1,94 @@
+
+default response:
+{
+    code:200,
+    msg:OK,
+    ........
+}
+
+
+
+http://0.0.0.0:9090/api/auth?login=$LOGIN&pass=$PASSWORD
+
+{
+    code:200,
+    msg:OK,
+    user:{
+        id:1
+        ....
+    },
+    token:"fHkldfsJFdjfldsldfsmfjjd....."
+}
+
+$TOKEN = "Bearer $token"
+
+
+http://0.0.0.0:9090/api/auth?login=$LOGIN&pass=$PASSWORD
+
+http://0.0.0.0:9090/api/customers
+
+http://0.0.0.0:9090/api/customer/{customerID}
+
+http://127.0.0.1:9010/api/customer/3?page=1&pagesize=5&viol=1625&sts=1&paid=1
+
+
+http://0.0.0.0:9090/api/notifications?sts=-1&page=0&pageSize=15
+
+http://0.0.0.0:9090/api/notifications/mask-as-read
+
+http://0.0.0.0:9090/api/profile
+
+http://0.0.0.0:9090/api/profile/update
+
+http://0.0.0.0:9090/api/customer/{customerID}/violation/{vID}
+
+$PAID   1 -Да 1 ||||
+		0-Нет 0 |||
+		-1 all
+		
+$STS 	1-Потвержден 1 ||||
+		0-не Потвержден != 1 |||
+		-1 all
+
+$Viol = 1625 => 'Проезд на красный сигнал светофора' ||||
+	    1230 => 'Пересечение сплошной линии',		||||
+	    1301 => 'Движение по встречной полосе',
+	    1345 => 'Выезд за стоп-линию'                ||||
+	    -1 all
+		
+
+http://0.0.0.0:9090/api/customer/{customerID}/update
+
+http://0.0.0.0:9090/api/customer/{customerID}/change-sms-notif
+
+
+http://0.0.0.0:9090/api/tarrifs
+http://0.0.0.0:9090/api/tarrif/{tarrifID}
+
+
+
+Adminstrator
+
+    http://0.0.0.0:9090/api/admin/customers.Add
+	http://0.0.0.0:9090/api/admin/customers.Get
+	http://0.0.0.0:9090/api/admin/customers.Update
+	http://0.0.0.0:9090/api/admin/customers.Delete
+	http://0.0.0.0:9090/api/admin/users.List?roleID=-1
+	http://0.0.0.0:9090/api/admin/users.Add
+	http://0.0.0.0:9090/api/admin/users.Get
+	http://0.0.0.0:9090/api/admin/users.Update
+	http://0.0.0.0:9090/api/admin/users.Delete
+	http://0.0.0.0:9090/api/admin/users/{userID}/add-subs/{tarrifID}
+	http://0.0.0.0:9090/api/admin/users/{userID}/subs
+
+
+	http://0.0.0.0:9090/api/admin//violations/{vehiclePlate}?page=1&pageSize=5&paid=$PAID&sts=$STS&viol=$VIOL
+	http://0.0.0.0:9090/api/admin//violation/{vID}
+
+
+
+
+
+
+
+
